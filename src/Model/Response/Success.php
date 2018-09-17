@@ -1,6 +1,9 @@
 <?php
+declare(strict_types=1);
 
 namespace App\Model\Response;
+
+use App\Model\Parameters;
 
 class Success implements \JsonSerializable
 {
@@ -93,6 +96,7 @@ class Success implements \JsonSerializable
         return [
             'success' => true,
             'data' => [
+                // booleans
                 'isBot' => $this->isBot,
                 'isTouchEnabled' => $this->isTouchEnabled,
                 'isMobile' => $this->isMobile,
@@ -111,6 +115,7 @@ class Success implements \JsonSerializable
                 'isPIM' => $this->isPIM,
                 'isLibrary' => $this->isLibrary,
                 'isMediaPlayer' => $this->isMediaPlayer,
+                // strings
                 'osName' => $this->os['name'] ?? '',
                 'osShortName' => $this->os['short_name'] ?? '',
                 'osVersion' => $this->os['version'] ?? '',
@@ -121,7 +126,6 @@ class Success implements \JsonSerializable
                 'clientVersion' => $this->client['version'] ?? '',
                 'clientEngine' => $this->client['engine'] ?? '',
                 'clientEngineVersion' => $this->client['engine_version'] ?? '',
-                'device' => $this->device,
                 'deviceName' => $this->deviceName,
                 'brand' => $this->brand,
                 'brandName' => $this->brandName,
@@ -131,6 +135,8 @@ class Success implements \JsonSerializable
                 'botUrl' => $this->bot['url'] ?? '',
                 'botProducerName' => $this->bot['producer']['name'] ?? '',
                 'botProducerUrl' => $this->bot['producer']['url'] ?? '',
+                // integers
+                'device' => $this->device ?? Parameters::DEFAULT_DEVICE,
             ]
         ];
     }
@@ -140,7 +146,7 @@ class Success implements \JsonSerializable
         return $this->isBot;
     }
 
-    public function setIsBot($isBot): void
+    public function setIsBot(bool $isBot): void
     {
         $this->isBot = $isBot;
     }
@@ -150,7 +156,7 @@ class Success implements \JsonSerializable
         return $this->isTouchEnabled;
     }
 
-    public function setIsTouchEnabled($isTouchEnabled): void
+    public function setIsTouchEnabled(bool $isTouchEnabled): void
     {
         $this->isTouchEnabled = $isTouchEnabled;
     }
@@ -160,7 +166,7 @@ class Success implements \JsonSerializable
         return $this->isMobile;
     }
 
-    public function setIsMobile($isMobile): void
+    public function setIsMobile(bool $isMobile): void
     {
         $this->isMobile = $isMobile;
     }
@@ -170,7 +176,7 @@ class Success implements \JsonSerializable
         return $this->isDesktop;
     }
 
-    public function setIsDesktop($isDesktop): void
+    public function setIsDesktop(bool $isDesktop): void
     {
         $this->isDesktop = $isDesktop;
     }
@@ -340,7 +346,7 @@ class Success implements \JsonSerializable
         return $this->os;
     }
 
-    public function setOs($os): void
+    public function setOs(?array $os): void
     {
         $this->os = $os;
     }
@@ -350,7 +356,7 @@ class Success implements \JsonSerializable
         return $this->client;
     }
 
-    public function setClient($client): void
+    public function setClient(?array $client): void
     {
         $this->client = $client;
     }
@@ -360,7 +366,7 @@ class Success implements \JsonSerializable
         return $this->device;
     }
 
-    public function setDevice($device): void
+    public function setDevice(?int $device): void
     {
         $this->device = $device;
     }
@@ -370,7 +376,7 @@ class Success implements \JsonSerializable
         return $this->deviceName;
     }
 
-    public function setDeviceName($deviceName): void
+    public function setDeviceName(string $deviceName): void
     {
         $this->deviceName = $deviceName;
     }
@@ -380,7 +386,7 @@ class Success implements \JsonSerializable
         return $this->brand;
     }
 
-    public function setBrand($brand): void
+    public function setBrand(string $brand): void
     {
         $this->brand = $brand;
     }
@@ -390,7 +396,7 @@ class Success implements \JsonSerializable
         return $this->brandName;
     }
 
-    public function setBrandName($brandName): void
+    public function setBrandName(string $brandName): void
     {
         $this->brandName = $brandName;
     }
@@ -400,7 +406,7 @@ class Success implements \JsonSerializable
         return $this->model;
     }
 
-    public function setModel($model): void
+    public function setModel(string $model): void
     {
         $this->model = $model;
     }
@@ -410,7 +416,7 @@ class Success implements \JsonSerializable
         return $this->bot;
     }
 
-    public function setBot($bot): void
+    public function setBot(?array $bot): void
     {
         $this->bot = $bot;
     }
