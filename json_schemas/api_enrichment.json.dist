@@ -8,16 +8,16 @@
     "parameters": {
       "inputs": [
         {
-          "key": "ua",
+          "key": "useragent",
           "pojo": {
-            "field": "user_agent"
+            "field": "useragent"
           }
         }
       ],
       "api": {
         "http": {
           "method": "GET",
-          "uri": "http://useragent.example.com/?user-agent={{ua}}",
+          "uri": "http://useragent.example.com/?user-agent={{useragent}}",
           "timeout": 5000,
           "authentication": { }
         }
