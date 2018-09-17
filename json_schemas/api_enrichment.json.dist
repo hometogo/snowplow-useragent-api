@@ -1,0 +1,37 @@
+{
+  "schema": "iglu:com.snowplowanalytics.snowplow.enrichments/api_request_enrichment_config/jsonschema/1-0-0",
+
+  "data": {
+    "name": "api_request_enrichment_config",
+    "vendor": "com.snowplowanalytics.snowplow.enrichments",
+    "enabled": true,
+    "parameters": {
+      "inputs": [
+        {
+          "key": "ua",
+          "pojo": {
+            "field": "user_agent"
+          }
+        }
+      ],
+      "api": {
+        "http": {
+          "method": "GET",
+          "uri": "http://useragent.example.com/?user-agent={{ua}}",
+          "timeout": 5000,
+          "authentication": { }
+        }
+      },
+      "outputs": [ {
+        "schema": "http://useragent.example.com/user-agent/jsonschema/1-0-0.json",
+        "json": {
+          "jsonPath": "$.data"
+        }
+      } ],
+      "cache": {
+        "size": 100000,
+        "ttl": 604800
+      }
+    }
+  }
+}

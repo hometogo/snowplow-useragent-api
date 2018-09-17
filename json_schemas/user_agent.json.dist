@@ -1,0 +1,180 @@
+{
+    "$schema": "http://iglucentral.com/schemas/com.snowplowanalytics.self-desc/schema/jsonschema/1-0-0#",
+    "description": "Schema for user agent recognition",
+
+    "type": "object",
+    "properties": {
+        "isBot": {
+            "description": "Bot user",
+            "type": "boolean"
+        },
+        "isTouchEnabled": {
+            "description": "Touch enabled user",
+            "type": "boolean"
+        },
+        "isMobile": {
+            "description": "Mobile user",
+            "type": "boolean"
+        },
+        "isDesktop": {
+            "description": "Desktop user",
+            "type": "boolean"
+        },
+        "isTablet": {
+            "description": "Tablet user",
+            "type": "boolean"
+        },
+        "isPhablet": {
+            "description": "Phablet user",
+            "type": "boolean"
+        },
+        "isConsole": {
+            "description": "Console user",
+            "type": "boolean"
+        },
+        "isPortableMediaPlayer": {
+            "description": "Portable media player user",
+            "type": "boolean"
+        },
+        "isCarBrowser": {
+            "description": "Car browser user",
+            "type": "boolean"
+        },
+        "isTV": {
+            "description": "TV user",
+            "type": "boolean"
+        },
+        "isSmartDisplay": {
+            "description": "Smart display user",
+            "type": "boolean"
+        },
+        "isCamera": {
+            "description": "Camera user",
+            "type": "boolean"
+        },
+        "isBrowser": {
+            "description": "Browser user",
+            "type": "boolean"
+        },
+        "isFeedReader": {
+            "description": "Feed reader user",
+            "type": "boolean"
+        },
+        "isMobileApp": {
+            "description": "Mobile app user",
+            "type": "boolean"
+        },
+        "isPIM": {
+            "description": "PIM user",
+            "type": "boolean"
+        },
+        "isLibrary": {
+            "description": "Library user",
+            "type": "boolean"
+        },
+        "isMediaPlayer": {
+            "description": "Media player user",
+            "type": "boolean"
+        },
+        "osName": {
+            "description": "Operating system name",
+            "type": "string"
+        },
+        "osShortName": {
+            "description": "Operating system short name",
+            "type": "string"
+        },
+        "osVersion": {
+            "description": "Operating system version",
+            "type": "string"
+        },
+        "osPlatform": {
+            "description": "Operating system platform",
+            "type": "string"
+        },
+        "clientType": {
+            "description": "Client type",
+            "type": "string"
+        },
+        "clientName": {
+            "description": "Client name",
+            "type": "string"
+        },
+        "clientShortName": {
+            "description": "Client short name",
+            "type": "string"
+        },
+        "clientVersion": {
+            "description": "Client version",
+            "type": "string"
+        },
+        "clientEngine": {
+            "description": "Client engine",
+            "type": "string"
+        },
+        "clientEngineVersion": {
+            "description": "Client engine version",
+            "type": "string"
+        },
+        "deviceName": {
+            "description": "Device name",
+            "type": "string"
+        },
+        "brand": {
+            "description": "Device brand",
+            "type": "string"
+        },
+        "brandName": {
+            "description": "Device brand name",
+            "type": "string"
+        },
+        "model": {
+            "description": "Device model",
+            "type": "string"
+        },
+        "botName": {
+            "description": "Bot name",
+            "type": "string"
+        },
+        "botCategory": {
+            "description": "Bot category",
+            "type": "string"
+        },
+        "botUrl": {
+            "description": "Bot url",
+            "type": "string"
+        },
+        "botProducerName": {
+            "description": "Bot producer name",
+            "type": "string"
+        },
+        "botProducerUrl": {
+            "description": "Bot producer url",
+            "type": "string"
+        },
+        "device": {
+            "description": "Device id",
+            "type": "integer"
+        },
+        "required": [
+            "isBot",
+            "isTouchEnabled",
+            "isMobile",
+            "isDesktop",
+            "isTablet",
+            "isPhablet",
+            "isConsole",
+            "isPortableMediaPlayer",
+            "isTV",
+            "isSmartDisplay",
+            "isCamera",
+            "isBrowser",
+            "isFeedReader",
+            "isMobileApp",
+            "isPIM",
+            "isLibrary",
+            "isMediaPlayer"
+        ],
+        "additionalProperties": true
+    }
+}
