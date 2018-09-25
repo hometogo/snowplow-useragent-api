@@ -116,25 +116,25 @@ class Success implements \JsonSerializable
                 'isLibrary' => $this->isLibrary,
                 'isMediaPlayer' => $this->isMediaPlayer,
                 // strings
-                'osName' => $this->os['name'] ?? '',
-                'osShortName' => $this->os['short_name'] ?? '',
-                'osVersion' => $this->os['version'] ?? '',
-                'osPlatform' => $this->os['platform'] ?? '',
-                'clientType' => $this->client['type'] ?? '',
-                'clientName' => $this->client['name'] ?? '',
-                'clientShortName' => $this->client['short_name'] ?? '',
-                'clientVersion' => $this->client['version'] ?? '',
-                'clientEngine' => $this->client['engine'] ?? '',
-                'clientEngineVersion' => $this->client['engine_version'] ?? '',
-                'deviceName' => $this->deviceName,
-                'brand' => $this->brand,
-                'brandName' => $this->brandName,
-                'model' => $this->model,
-                'botName' => $this->bot['name'] ?? '',
-                'botCategory' => $this->bot['category'] ?? '',
-                'botUrl' => $this->bot['url'] ?? '',
-                'botProducerName' => $this->bot['producer']['name'] ?? '',
-                'botProducerUrl' => $this->bot['producer']['url'] ?? '',
+                'osName' => $this->os['name'] ?? null,
+                'osShortName' => $this->os['short_name'] ?? null,
+                'osVersion' => $this->getOsVersion(),
+                'osPlatform' => $this->getOsPlatform(),
+                'clientType' => $this->client['type'] ?: null,
+                'clientName' => $this->client['name'] ?? null,
+                'clientShortName' => $this->client['short_name'] ?? null,
+                'clientVersion' => $this->client['version'] ?: null,
+                'clientEngine' => $this->client['engine'] ?? null,
+                'clientEngineVersion' => $this->getClientEngineVersion(),
+                'deviceName' => $this->deviceName ?: null,
+                'brand' => $this->brand ?: null,
+                'brandName' => $this->brandName ?: null,
+                'model' => $this->model ?: null,
+                'botName' => $this->bot['name'] ?: null,
+                'botCategory' => $this->bot['category'] ?: null,
+                'botUrl' => $this->bot['url'] ?: null,
+                'botProducerName' => $this->bot['producer']['name'] ?: null,
+                'botProducerUrl' => $this->bot['producer']['url'] ?: null,
                 // integers
                 'device' => $this->device ?? Parameters::DEFAULT_DEVICE,
             ]
@@ -419,5 +419,20 @@ class Success implements \JsonSerializable
     public function setBot(?array $bot): void
     {
         $this->bot = $bot;
+    }
+
+    private function getOsVersion(): ?string
+    {
+        return !empty($this->os['version']) ? $this->os['version'] : null;
+    }
+
+    private function getOsPlatform(): ?string
+    {
+        return !empty($this->os['platform']) ? $this->os['platform'] : null;
+    }
+
+    private function getClientEngineVersion(): ?string
+    {
+        return !empty($this->client['engine_version']) ? $this->client['engine_version'] : null;
     }
 }

@@ -78,83 +78,123 @@
         },
         "osName": {
             "description": "Operating system name",
-            "type": "string"
+            "type": ["string", "null"],
+            "minLength": 1,
+            "maxLength": 64
         },
         "osShortName": {
             "description": "Operating system short name",
-            "type": "string"
+            "type": ["string", "null"],
+            "minLength": 1,
+            "maxLength": 16
         },
         "osVersion": {
             "description": "Operating system version",
-            "type": "string"
+            "type": ["string", "null"],
+            "minLength": 1,
+            "maxLength": 16
         },
         "osPlatform": {
             "description": "Operating system platform",
-            "type": "string"
+            "type": ["string", "null"],
+            "minLength": 1,
+            "maxLength": 8
         },
         "clientType": {
             "description": "Client type",
-            "type": "string"
+            "type": ["string", "null"],
+            "minLength": 1,
+            "maxLength": 64
         },
         "clientName": {
             "description": "Client name",
-            "type": "string"
+            "type": ["string", "null"],
+            "minLength": 1,
+            "maxLength": 128
         },
         "clientShortName": {
             "description": "Client short name",
-            "type": "string"
+            "type": ["string", "null"],
+            "minLength": 1,
+            "maxLength": 32
         },
         "clientVersion": {
             "description": "Client version",
-            "type": "string"
+            "type": ["string", "null"],
+            "minLength": 1,
+            "maxLength": 128
         },
         "clientEngine": {
             "description": "Client engine",
-            "type": "string"
+            "type": ["string", "null"],
+            "minLength": 1,
+            "maxLength": 32
         },
         "clientEngineVersion": {
             "description": "Client engine version",
-            "type": "string"
+            "type": ["string", "null"],
+            "minLength": 1,
+            "maxLength": 16
         },
         "deviceName": {
             "description": "Device name",
-            "type": "string"
+            "type": ["string", "null"],
+            "minLength": 1,
+            "maxLength": 128
         },
         "brand": {
             "description": "Device brand",
-            "type": "string"
+            "type": ["string", "null"],
+            "minLength": 1,
+            "maxLength": 32
         },
         "brandName": {
             "description": "Device brand name",
-            "type": "string"
+            "type": ["string", "null"],
+            "minLength": 1,
+            "maxLength": 32
         },
         "model": {
             "description": "Device model",
-            "type": "string"
+            "type": ["string", "null"],
+            "minLength": 1,
+            "maxLength": 64
         },
         "botName": {
             "description": "Bot name",
-            "type": "string"
+            "type": ["string", "null"],
+            "minLength": 1,
+            "maxLength": 32
         },
         "botCategory": {
             "description": "Bot category",
-            "type": "string"
+            "type": ["string", "null"],
+            "minLength": 1,
+            "maxLength": 32
         },
         "botUrl": {
             "description": "Bot url",
-            "type": "string"
+            "type": ["string", "null"],
+            "minLength": 1,
+            "maxLength": 128
         },
         "botProducerName": {
             "description": "Bot producer name",
-            "type": "string"
+            "type": ["string", "null"],
+            "minLength": 1,
+            "maxLength": 64
         },
         "botProducerUrl": {
             "description": "Bot producer url",
-            "type": "string"
+            "type": ["string", "null"],
+            "minLength": 1,
+            "maxLength": 128
         },
         "device": {
             "description": "Device id",
-            "type": "integer"
+            "type": "integer",
+            "minimum": -1,
+            "maximum": 16
         },
         "required": [
             "isBot",
