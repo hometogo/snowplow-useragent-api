@@ -12,7 +12,9 @@
         "symfony/yaml": "*"
     },
     "require-dev": {
-        "symfony/dotenv": "*"
+        "symfony/browser-kit": "*",
+        "symfony/dotenv": "*",
+        "symfony/phpunit-bridge": "*"
     },
     "config": {
         "preferred-install": {
