@@ -10,9 +10,9 @@ class DeviceDetectorCache implements Cache
     /** @var FilesystemCache */
     private $cache;
 
-    public function __construct(FilesystemCache $cache)
+    public function __construct(string $namespace, int $ttl, string $cacheDir)
     {
-        $this->cache = $cache;
+        $this->cache = new FilesystemCache($namespace, $ttl, $cacheDir);
     }
 
     public function fetch($id)
@@ -27,7 +27,7 @@ class DeviceDetectorCache implements Cache
 
     public function save($id, $data, $lifeTime = 0): void
     {
-        $this->cache->set($id, $data, $lifeTime);
+        $this->cache->set($id, $data);
     }
 
     public function delete($id): void

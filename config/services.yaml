@@ -4,6 +4,8 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
+    devicedetector.cache.namespace: device-detector
+    devicedetector.cache.ttl: 3600
 
 services:
     # default configuration for services in *this* file
@@ -22,9 +24,12 @@ services:
     App\Service\RequestValidator:
         public: true
 
-    App\Service\Wrapper\DeviceDetectorCache: ~
+    App\Service\Wrapper\DeviceDetectorCache:
+        arguments:
+            - '%devicedetector.cache.namespace%'
+            - '%devicedetector.cache.ttl%'
+            - '%kernel.cache_dir%'
 
     DeviceDetector\DeviceDetector: ~
 
-    Symfony\Component\Cache\Simple\FilesystemCache: ~
 
