@@ -2,10 +2,8 @@
 
 namespace App\Service\Response;
 
-use App\Model\Parameters;
 use App\Service\Wrapper\DeviceDetectorCache;
 use DeviceDetector\DeviceDetector;
-use Symfony\Component\HttpFoundation\Request;
 
 class Manager
 {
@@ -25,9 +23,9 @@ class Manager
         $this->deviceDetector->setCache($deviceDetectorCache);
     }
 
-    public function success(Request $request): \JsonSerializable
+    public function success(string $userAgent): \JsonSerializable
     {
-        $this->deviceDetector->setUserAgent($request->get(Parameters::USER_AGENT));
+        $this->deviceDetector->setUserAgent($userAgent);
         $this->deviceDetector->parse();
 
         return $this->builder->buildFromDeviceDetector($this->deviceDetector);

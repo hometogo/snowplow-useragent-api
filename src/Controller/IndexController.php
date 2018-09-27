@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Model\Parameters;
 use App\Service\RequestValidator;
 use App\Service\Response\Manager as ResponseManager;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -17,7 +18,7 @@ class IndexController extends Controller
     {
         try {
             $this->getRequestValidator()->validate($request);
-            $responseModel = $this->getResponseManager()->success($request);
+            $responseModel = $this->getResponseManager()->success($request->get(Parameters::USER_AGENT));
             $httpStatus = Response::HTTP_OK;
         } catch (\InvalidArgumentException $exception) {
             $responseModel = $this->getResponseManager()->error($exception);
@@ -28,6 +29,13 @@ class IndexController extends Controller
         $httpResponse->setSharedMaxAge($this->getCacheTTL());
 
         return $httpResponse;
+    }
+
+    public function self(Request $request): JsonResponse
+    {
+        $responseModel = $this->getResponseManager()->success($request->headers->get('User-Agent'));
+
+        return new JsonResponse($responseModel, Response::HTTP_OK);
     }
 
     private function getRequestValidator(): RequestValidator
