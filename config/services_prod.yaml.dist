@@ -1,0 +1,2 @@
+parameters:
+    response_cache_ttl: 3600
