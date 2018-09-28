@@ -5,3 +5,11 @@ index:
 self:
     path: /self
     controller: App\Controller\IndexController::self
+
+config:
+    path: /config
+    controller: App\Controller\ConfigController:index
+
+user_agent_schema:
+    path: /user-agent/jsonschema/1-0-0.json
+    controller: App\Controller\ConfigController:userAgent

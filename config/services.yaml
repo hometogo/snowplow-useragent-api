@@ -7,6 +7,9 @@ parameters:
     devicedetector.cache.namespace: device-detector
     devicedetector.cache.ttl: 3600
 
+    jsonschemas.path: /json_schemas
+    jsonschemas.cache.ttl: 3600
+
 services:
     # default configuration for services in *this* file
     _defaults:
@@ -31,5 +34,3 @@ services:
             - '%kernel.cache_dir%'
 
     DeviceDetector\DeviceDetector: ~
-
-

@@ -17,13 +17,13 @@
       "api": {
         "http": {
           "method": "GET",
-          "uri": "http://useragent.example.com/?user-agent={{useragent}}",
+          "uri": "http://%hostname%/?user-agent={{useragent}}",
           "timeout": 5000,
           "authentication": { }
         }
       },
       "outputs": [ {
-        "schema": "http://useragent.example.com/user-agent/jsonschema/1-0-0.json",
+        "schema": "http://%hostname%/user-agent/jsonschema/1-0-0.json",
         "json": {
           "jsonPath": "$.data"
         }
