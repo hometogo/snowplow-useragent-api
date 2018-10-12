@@ -1,4 +1,4 @@
-snowplow-device-api
+snowplow-useragent-api
 ===================
 
 ## Description
