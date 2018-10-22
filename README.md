@@ -14,8 +14,8 @@ php >= 7.1.3
 
 The fastest way to get started:
 ```
-docker pull hometogo/snowplow-device-api
-docker run -d -p 80:80 --name snowplow-device-api hometogo:snowplow-device-api
+docker pull hometogotech/snowplow-useragent-api
+docker run -d -p 80:80 --name snowplow-useragent-api hometogotech/snowplow-useragent-api
 ```
 This image contains apache2 with latest mod_php7.2 and all dependencies baked in. Not recommended for production use. 
 
