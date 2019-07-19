@@ -82,6 +82,12 @@
             "description": "Media player user",
             "type": "boolean"
         },
+        "osFamily": {
+            "description": "Operating system family",
+            "type": ["string", "null"],
+            "minLength": 1,
+            "maxLength": 64
+        },
         "osName": {
             "description": "Operating system name",
             "type": ["string", "null"],
@@ -105,6 +111,12 @@
             "type": ["string", "null"],
             "minLength": 1,
             "maxLength": 8
+        },
+        "brFamily": {
+            "description": "Browser family",
+            "type": ["string", "null"],
+            "minLength": 1,
+            "maxLength": 64
         },
         "clientType": {
             "description": "Client type",

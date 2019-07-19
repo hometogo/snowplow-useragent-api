@@ -70,6 +70,12 @@ class Success implements \JsonSerializable
     /** @var mixed */
     private $os;
 
+    /** @var string|null */
+    private $osFamily;
+
+    /** @var string|null */
+    private $browserFamily;
+
     /** @var mixed */
     private $client;
 
@@ -116,10 +122,12 @@ class Success implements \JsonSerializable
                 'isLibrary' => $this->isLibrary,
                 'isMediaPlayer' => $this->isMediaPlayer,
                 // strings
+                'osFamily' => $this->osFamily,
                 'osName' => $this->os['name'] ?? null,
                 'osShortName' => $this->os['short_name'] ?? null,
                 'osVersion' => $this->getOsVersion(),
                 'osPlatform' => $this->getOsPlatform(),
+                'brFamily' => $this->browserFamily,
                 'clientType' => $this->client['type'] ?: null,
                 'clientName' => $this->client['name'] ?? null,
                 'clientShortName' => $this->client['short_name'] ?? null,
@@ -349,6 +357,26 @@ class Success implements \JsonSerializable
     public function setOs(?array $os): void
     {
         $this->os = $os;
+    }
+
+    public function getOsFamily(): ?string
+    {
+        return $this->osFamily;
+    }
+
+    public function setOsFamily(?string $osFamily): void
+    {
+        $this->osFamily = $osFamily;
+    }
+
+    public function getBrowserFamily(): ?string
+    {
+        return $this->browserFamily;
+    }
+
+    public function setBrowserFamily(?string $browserFamily): void
+    {
+        $this->browserFamily = $browserFamily;
     }
 
     public function getClient()

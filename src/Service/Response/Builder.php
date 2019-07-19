@@ -5,6 +5,8 @@ namespace App\Service\Response;
 use App\Model\Response\Error;
 use App\Model\Response\Success;
 use DeviceDetector\DeviceDetector;
+use DeviceDetector\Parser\OperatingSystem;
+use DeviceDetector\Parser\Client\Browser;
 
 class Builder
 {
@@ -41,9 +43,25 @@ class Builder
             $model->setIsPIM($deviceDetector->isPIM());
             $model->setIsLibrary($deviceDetector->isLibrary());
             $model->setIsMediaPlayer($deviceDetector->isMediaPlayer());
+            $model->setOsFamily($this->getOsFamily($deviceDetector));
+            $model->setBrowserFamily($this->getBrowserFamily($deviceDetector));
         }
 
         return $model;
+    }
+
+    private function getOsFamily(DeviceDetector $deviceDetector): string
+    {
+        $osFamily = OperatingSystem::getOsFamily($deviceDetector->getOs('short_name'));
+
+        return $osFamily !== false ? $osFamily : null;
+    }
+
+    private function getBrowserFamily(DeviceDetector $deviceDetector): string
+    {
+        $browserFamily = Browser::getBrowserFamily($deviceDetector->getClient('short_name'));
+
+        return $browserFamily !== false ? $browserFamily : null;
     }
 
     public function buildFromException(\Exception $exception): \JsonSerializable
