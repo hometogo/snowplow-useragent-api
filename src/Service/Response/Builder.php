@@ -50,14 +50,14 @@ class Builder
         return $model;
     }
 
-    private function getOsFamily(DeviceDetector $deviceDetector): string
+    private function getOsFamily(DeviceDetector $deviceDetector): ?string
     {
         $osFamily = OperatingSystem::getOsFamily($deviceDetector->getOs('short_name'));
 
         return $osFamily !== false ? $osFamily : null;
     }
 
-    private function getBrowserFamily(DeviceDetector $deviceDetector): string
+    private function getBrowserFamily(DeviceDetector $deviceDetector): ?string
     {
         $browserFamily = Browser::getBrowserFamily($deviceDetector->getClient('short_name'));
 
