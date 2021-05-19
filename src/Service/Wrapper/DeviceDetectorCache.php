@@ -2,10 +2,10 @@
 
 namespace App\Service\Wrapper;
 
-use DeviceDetector\Cache\Cache;
+use DeviceDetector\Cache\CacheInterface;
 use Symfony\Component\Cache\Simple\FilesystemCache;
 
-class DeviceDetectorCache implements Cache
+class DeviceDetectorCache implements CacheInterface
 {
     /** @var FilesystemCache */
     private $cache;
@@ -15,28 +15,34 @@ class DeviceDetectorCache implements Cache
         $this->cache = new FilesystemCache($namespace, $ttl, $cacheDir);
     }
 
-    public function fetch($id)
+    public function fetch(string $id)
     {
         return $this->cache->get($id);
     }
 
-    public function contains($id): bool
+    public function contains(string $id): bool
     {
         return $this->cache->has($id);
     }
 
-    public function save($id, $data, $lifeTime = 0): void
+    public function save(string $id, $data, int $lifeTime = 0): bool
     {
         $this->cache->set($id, $data);
+
+        return true;
     }
 
-    public function delete($id): void
+    public function delete(string $id): bool
     {
         $this->cache->delete($id);
+
+        return true;
     }
 
-    public function flushAll()
+    public function flushAll(): bool
     {
         $this->cache->clear();
+
+        return true;
     }
 }

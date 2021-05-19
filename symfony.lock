@@ -2,8 +2,8 @@
     "mustangostang/spyc": {
         "version": "0.6.2"
     },
-    "piwik/device-detector": {
-        "version": "3.11.1"
+    "matomo/device-detector": {
+        "version": "4.2.3"
     },
     "psr/cache": {
         "version": "1.0.1"
